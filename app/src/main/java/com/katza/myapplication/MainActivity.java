@@ -6,17 +6,23 @@ import static android.view.View.VISIBLE;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.zip.InflaterInputStream;
 
 public class MainActivity extends AppCompatActivity{
     Button btn1;
@@ -25,7 +31,11 @@ public class MainActivity extends AppCompatActivity{
     TextView txt1;
     TextView txt2;
     ImageView img1;
+    ImageView img2;
+    ImageView img3;
+    SeekBar skb1;
     EditText EditText1;
+    Switch switch1;
     int clickAmount = 0;
     int randomNum = (int)(Math.random()*10)+1;
     @Override
@@ -47,6 +57,8 @@ public class MainActivity extends AppCompatActivity{
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
+        switch1 = findViewById(R.id.switch1);
+        skb1 = findViewById(R.id.skb1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,11 +121,41 @@ public class MainActivity extends AppCompatActivity{
             }
 
         });
+        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    img2.setVisibility(VISIBLE);
+                }else{
+                    img2.setVisibility(INVISIBLE);
+                }
+            }
+        });
+        skb1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                img3.setAlpha(progress/100f);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(MainActivity.this, "נלחץ", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(MainActivity.this, "נעזב", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initViews() {
         img1 = findViewById(R.id.img1);
         img1.setVisibility(INVISIBLE);
+        img2 = findViewById(R.id.img2);
+        img2.setVisibility(INVISIBLE);
+        img3 = findViewById(R.id.img3);
+        img3.setAlpha(0f);
         txt1 = findViewById(R.id.txt1);
         txt2 = findViewById(R.id.txt2);
         txt2.setVisibility(INVISIBLE);
