@@ -2,12 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/l1"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DynamicActivity"
-    >
+    tools:context=".SharedPreferencesActivity">
     <TextView android:text="SharePreference"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,5 +37,4 @@
         android:text = "welcome:"
         android:id="@+id/tvDisplay"
         />
-
 </LinearLayout>

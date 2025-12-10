@@ -1,10 +1,14 @@
 package com.katza.myapplication;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +17,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class DynamicActivity extends AppCompatActivity {
-
+    SharedPreferences sp;
+    Button btnSave;
+    EditText etFname,etLname;
+    TextView tvDisplay;
     ImageView iv;
     LinearLayout main;
     LinearLayout linearLayoutHorizontal;
