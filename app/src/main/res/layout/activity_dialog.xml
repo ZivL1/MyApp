@@ -21,4 +21,10 @@
         android:text="Login"
         android:textSize="30sp"
         />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnShowSP"
+        android:text="show shared preferences"
+        android:textSize="20sp"/>
 </LinearLayout>

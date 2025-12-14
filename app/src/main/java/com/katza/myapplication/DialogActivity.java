@@ -1,6 +1,8 @@
 package com.katza.myapplication;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +20,7 @@ public class DialogActivity extends AppCompatActivity {
     SharedPreferences sp;
     Dialog d;
     EditText etUserName, etPass;
-    Button btnCustomLogin, btnLogin;
+    Button btnCustomLogin, btnLogin, btnShowSP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,17 @@ public class DialogActivity extends AppCompatActivity {
                 createLoginDialog();
             }
         });
+        btnShowSP = findViewById(R.id.btnShowSP);
+        btnShowSP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String struname = sp.getString("userName",null);
+                String strpass = sp.getString("password",null);
+                if(struname!=null&&strpass!=null){
+                    Toast.makeText(DialogActivity.this, "username: " + struname + " \npassword: " + strpass, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
     public void createLoginDialog(){
         d=new Dialog(this);
@@ -50,6 +63,10 @@ public class DialogActivity extends AppCompatActivity {
         btnCustomLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("userName",etUserName.getText().toString());
+                editor.putString("password",etPass.getText().toString());
+                editor.commit();
                 Toast.makeText(DialogActivity.this, "username password saved", Toast.LENGTH_SHORT).show();
                 d.dismiss();
             }

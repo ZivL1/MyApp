@@ -42,12 +42,12 @@ public class SharedPreferencesActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(btnSave==v){
+
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("fName",etFname.getText().toString());
                     editor.putString("lName",etLname.getText().toString());
                     editor.commit();
-                }
+
             }
         });
 
