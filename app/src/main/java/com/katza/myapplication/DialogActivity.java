@@ -60,15 +60,34 @@ public class DialogActivity extends AppCompatActivity {
         etUserName=d.findViewById(R.id.etUserName);
         etPass=d.findViewById(R.id.etPassword);
         btnCustomLogin=d.findViewById(R.id.btnDialogLogin);
+
         btnCustomLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("userName",etUserName.getText().toString());
-                editor.putString("password",etPass.getText().toString());
-                editor.commit();
-                Toast.makeText(DialogActivity.this, "username password saved", Toast.LENGTH_SHORT).show();
-                d.dismiss();
+                AlertDialog.Builder builder = new AlertDialog.Builder(DialogActivity.this);
+                builder.setTitle("are you sure?");
+                builder.setMessage("are you sure you wanna log in?(this action will override the last login details)");
+                builder.setCancelable(false);
+                builder.setPositiveButton("I agree", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("userName",etUserName.getText().toString());
+                        editor.putString("password",etPass.getText().toString());
+                        editor.commit();
+                        Toast.makeText(DialogActivity.this, "username password saved", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                        d.dismiss();
+                    }
+                });
+                builder.setNegativeButton("I don't agree", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        d.dismiss();
+                    }
+                });
+                builder.create().show();
             }
         });
         d.show();
