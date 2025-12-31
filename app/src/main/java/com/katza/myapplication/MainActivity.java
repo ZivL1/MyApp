@@ -4,6 +4,10 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -48,9 +52,51 @@ public class MainActivity extends AppCompatActivity{
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         initViews();
         initListeners();
-        
+        registerForContextMenu(img2);
+
+
+    }
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu,v,menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+    }
+
+    public boolean onContextItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if(id==R.id.action_DialogActivity){
+            Toast.makeText(this, "You selected DialogActivity", Toast.LENGTH_SHORT).show();
+        }else if(id==R.id.action_mainActivity){
+            Toast.makeText(this, "You selected main activity", Toast.LENGTH_SHORT).show();
+        }else if(id==R.id.action_DynamicActivity){
+            Toast.makeText(this, "You selected DynamicActivity", Toast.LENGTH_SHORT).show();
+        }else if(id==R.id.action_SharedPreferencesActivity){
+            Toast.makeText(this, "You selected sp activity", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if(id==R.id.action_DialogActivity){
+            Toast.makeText(this, "You selected DialogActivity", Toast.LENGTH_SHORT).show();
+        }else if(id==R.id.action_mainActivity){
+            Toast.makeText(this, "You selected main activity", Toast.LENGTH_SHORT).show();
+        }else if(id==R.id.action_DynamicActivity){
+            Toast.makeText(this, "You selected DynamicActivity", Toast.LENGTH_SHORT).show();
+        }else if(id==R.id.action_SharedPreferencesActivity){
+            Toast.makeText(this, "You selected sp activity", Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
     }
 
     private void initListeners() {
