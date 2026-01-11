@@ -3,6 +3,7 @@ package com.katza.myapplication;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -83,14 +84,19 @@ public class MainActivity extends AppCompatActivity{
         super.onOptionsItemSelected(item);
         int id = item.getItemId();
         if(id==R.id.action_DialogActivity){
-            Toast.makeText(this, "You selected DialogActivity", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, DialogActivity.class);
+            startActivity(intent);
         }else if(id==R.id.action_mainActivity){
-            Toast.makeText(this, "You selected main activity", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }else if(id==R.id.action_DynamicActivity){
-            Toast.makeText(this, "You selected DynamicActivity", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, DynamicActivity.class);
+            startActivity(intent);
         }else if(id==R.id.action_SharedPreferencesActivity){
-            Toast.makeText(this, "You selected sp activity", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SharedPreferencesActivity.class);
+            startActivity(intent);
         }
+        finish();
         return true;
     }
 

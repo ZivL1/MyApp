@@ -1,7 +1,10 @@
 package com.katza.myapplication;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
@@ -61,7 +64,30 @@ public class DynamicActivity extends AppCompatActivity {
         linearLayoutVertical.setLayoutParams(vLayoutParams);
         loadPicsY();
     }
+    public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if(id==R.id.action_DialogActivity){
+            Intent intent = new Intent(this, DialogActivity.class);
+            startActivity(intent);
+        }else if(id==R.id.action_mainActivity){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else if(id==R.id.action_DynamicActivity){
+            Intent intent = new Intent(this, DynamicActivity.class);
+            startActivity(intent);
+        }else if(id==R.id.action_SharedPreferencesActivity){
+            Intent intent = new Intent(this, SharedPreferencesActivity.class);
+            startActivity(intent);
+        }
+        finish();
+        return true;
+    }
 
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
     public void loadPicsX(){
         for (int i = 0; i<100; i++){
             iv = new ImageView(this);

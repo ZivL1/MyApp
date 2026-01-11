@@ -2,10 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
 <item
     android:id="@+id/action_DialogActivity"
     android:title="Dialog activity"
-    android:orderInCategory="100"
+    android:orderInCategory="400"
     app:showAsAction="never"/>
     <item
         android:id="@+id/action_DynamicActivity"
@@ -20,7 +21,7 @@
     <item
         android:id="@+id/action_mainActivity"
         android:title="Main activity"
-        android:orderInCategory="400"
+        android:orderInCategory="100"
         app:showAsAction="never"/>
 
 </menu>

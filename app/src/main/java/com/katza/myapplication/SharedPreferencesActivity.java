@@ -1,7 +1,10 @@
 package com.katza.myapplication;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,5 +54,29 @@ public class SharedPreferencesActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if(id==R.id.action_DialogActivity){
+            Intent intent = new Intent(this, DialogActivity.class);
+            startActivity(intent);
+        }else if(id==R.id.action_mainActivity){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else if(id==R.id.action_DynamicActivity){
+            Intent intent = new Intent(this, DynamicActivity.class);
+            startActivity(intent);
+        }else if(id==R.id.action_SharedPreferencesActivity){
+            Intent intent = new Intent(this, SharedPreferencesActivity.class);
+            startActivity(intent);
+        }
+        finish();
+        return true;
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
     }
 }
