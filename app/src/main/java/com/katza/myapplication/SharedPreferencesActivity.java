@@ -71,7 +71,6 @@ public class SharedPreferencesActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SharedPreferencesActivity.class);
             startActivity(intent);
         }
-        finish();
         return true;
     }
 

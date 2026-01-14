@@ -23,5 +23,11 @@
         android:title="Main activity"
         android:orderInCategory="100"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_activityFirst"
+        android:title="Actvity first"
+        android:orderInCategory="500"
+        app:showAsAction="never"
+        />
 
 </menu>
