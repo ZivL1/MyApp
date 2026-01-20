@@ -40,9 +40,15 @@ public class ActivitySecond extends AppCompatActivity {
         tvAge=findViewById(R.id.tvAge);
         tvName=findViewById(R.id.tvName);
         Intent intent = getIntent();
-        tvMale.append(" " + intent.getBooleanExtra("isMale", false));
-        tvAge.append(" " + intent.getIntExtra("age", 0));
-        tvName.append(intent.getStringExtra("name"));
+        if(intent.hasExtra("isMale")) {
+            tvMale.append(" " + intent.getBooleanExtra("isMale", false));
+        }
+        if(intent.hasExtra("age")) {
+            tvAge.append(" " + intent.getIntExtra("age", 0));
+        }
+        if(intent.hasExtra("name")) {
+            tvName.append(intent.getStringExtra("name"));
+        }
 
         btn = findViewById(R.id.returnToActivityFirst);
         btn.setOnClickListener(new View.OnClickListener() {
