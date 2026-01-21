@@ -29,5 +29,12 @@
         android:orderInCategory="500"
         app:showAsAction="never"
         />
+    <item
+        android:id="@+id/action_intentFilterActivity"
+        android:title="Intent filter activity"
+        android:orderInCategory="600"
+        app:showAsAction="never"
+        />
+
 
 </menu>

@@ -95,8 +95,8 @@ public class MainActivity extends AppCompatActivity{
         }else if(id==R.id.action_SharedPreferencesActivity){
             Intent intent = new Intent(this, SharedPreferencesActivity.class);
             startActivity(intent);
-        }else if(id==R.id.action_activityFirst){
-            Intent intent = new Intent(this, ActivityFirst.class);
+        }else if(id==R.id.action_intentFilterActivity){
+            Intent intent = new Intent(this,IntentFilterActivity.class);
             startActivity(intent);
         }
         return true;
