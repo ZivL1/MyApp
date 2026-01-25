@@ -11,14 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-feature android:name="android.hardware.camera" android:required="true"/>
+        <activity
+            android:name=".CameraActivity"
+            android:exported="false" />
         <activity
             android:name=".IntentFilterActivity"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ActivitySecond"
@@ -26,17 +31,19 @@
         <activity
             android:name=".ActivityFirst"
             android:exported="true">
-        <intent-filter>
-            <action android:name="com.example.ACTION_OPEN_SCREEN_TYPE_A" />
-            <category android:name="android.intent.category.DEFAULT"/>
-        </intent-filter>
+            <intent-filter>
+                <action android:name="com.example.ACTION_OPEN_SCREEN_TYPE_A" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".DialogActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.ACTION_OPEN_SCREEN_TYPE_B" />
-                <category android:name="android.intent.category.DEFAULT"/>
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -44,7 +51,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.ACTION_OPEN_SCREEN_TYPE_A" />
-                <category android:name="android.intent.category.DEFAULT"/>
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -52,9 +60,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

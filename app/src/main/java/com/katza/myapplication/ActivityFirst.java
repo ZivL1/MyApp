@@ -108,6 +108,10 @@ public class ActivityFirst extends AppCompatActivity {
             Intent intent = new Intent(this,IntentFilterActivity.class);
             startActivity(intent);
         }
+        else if(id==R.id.action_activityCamera){
+            Intent intent = new Intent(this, CameraActivity.class);
+            startActivity(intent);
+        }
         return true;
     }
 

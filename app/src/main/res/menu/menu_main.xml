@@ -35,6 +35,12 @@
         android:orderInCategory="600"
         app:showAsAction="never"
         />
+    <item
+        android:id="@+id/action_activityCamera"
+        android:title="Camera Activity"
+        android:orderInCategory="700"
+        app:showAsAction="never"
+        />
 
 
 </menu>
